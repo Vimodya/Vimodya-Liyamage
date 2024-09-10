@@ -8,6 +8,15 @@ export default function HeroSection() {
   const handleButtonClick = () => {
     router.push("/about"); // Navigate to the About page
   };
+  const handleButtonClick2 = () => {
+    router.push("/projects"); // Navigate to the About page
+  };
+  const handleButtonClick3 = () => {
+    router.push("/volunteer"); // Navigate to the About page
+  };
+  const handleButtonClick4 = () => {
+    router.push("/contact"); // Navigate to the About page
+  };
   return (
     <section className="relative h-screen flex flex-col justify-center items-center bg-black text-white">
       <div className="absolute top-4 left-4 w-10 h-10 rounded-full overflow-hidden">
@@ -35,19 +44,19 @@ export default function HeroSection() {
           </button>
           <button
             className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black transition duration-300"
-            onClick={handleButtonClick}
+            onClick={handleButtonClick2}
           >
             Projects →
           </button>
           <button
             className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black transition duration-300"
-            onClick={handleButtonClick}
+            onClick={handleButtonClick3}
           >
             Volunteer →
           </button>
           <button
             className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black transition duration-300"
-            onClick={handleButtonClick}
+            onClick={handleButtonClick4}
           >
             Get in touch →
           </button>
