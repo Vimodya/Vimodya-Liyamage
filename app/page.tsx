@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { FaGithub, FaLinkedin, FaHackerrank, FaEnvelope } from "react-icons/fa";
 
@@ -9,17 +9,18 @@ export default function HeroSection() {
   const router = useRouter(); // Use Next.js Router
   const nameRef = useRef<HTMLHeadingElement>(null); // Ref for name element
   const buttonsRef = useRef<HTMLDivElement>(null); // Ref for buttons container
+  const sidebarRef = useRef<HTMLDivElement>(null); // Ref for sidebar
+  const [isSidebarMoving, setIsSidebarMoving] = useState(false); // State to track sidebar movement
 
   useEffect(() => {
+    // Animate text and buttons
     if (nameRef.current) {
-      // Split text into individual letters
       const text = nameRef.current.innerText;
       nameRef.current.innerHTML = text
         .split("")
         .map((letter) => `<span class="letter">${letter}</span>`)
         .join("");
 
-      // GSAP typewriter animation for each letter
       gsap.fromTo(
         ".letter",
         { opacity: 0, y: 20 },
@@ -37,7 +38,7 @@ export default function HeroSection() {
       const buttons = buttonsRef.current.children;
       gsap.fromTo(
         buttons,
-        { opacity: 0, x: (index) => (index % 2 === 0 ? 100 : -100) }, // Alternates direction
+        { opacity: 0, x: (index) => (index % 2 === 0 ? 100 : -100) },
         {
           opacity: 1,
           x: 0,
@@ -49,17 +50,43 @@ export default function HeroSection() {
     }
   }, []);
 
+  // Handle the "Get in touch" button click
+  const handleGetInTouchClick = () => {
+    setIsSidebarMoving(true); // Start moving the sidebar
+
+    // Animate sidebar to the middle of the screen
+    gsap.to(sidebarRef.current, {
+      x: window.innerWidth / 4 - 50,
+      y: window.innerHeight / 4 - 10,
+      scale: 1.5, // Enlarge the sidebar
+      borderColor: "yellow", // Highlight the border
+      duration: 0.2, // Animation duration
+      ease: "power2.out",
+      onComplete: () => {
+        // After a short delay, return the sidebar to its original position
+        setTimeout(() => {
+          gsap.to(sidebarRef.current, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            borderColor: "white", // Return border color to original
+            duration: 0.2,
+            ease: "power2.out",
+          });
+          setIsSidebarMoving(false); // Stop movement
+        }, 500); // Keep the sidebar in the middle for 3 seconds
+      },
+    });
+  };
+
   const handleButtonClick = () => {
-    router.push("/about"); // Navigate to the About page
+    router.push("/about");
   };
   const handleButtonClick2 = () => {
-    router.push("/projects"); // Navigate to the Projects page
+    router.push("/projects");
   };
   const handleButtonClick3 = () => {
-    router.push("/volunteer"); // Navigate to the Volunteer page
-  };
-  const handleButtonClick4 = () => {
-    router.push("/contact"); // Navigate to the Contact page
+    router.push("/volunteer");
   };
 
   return (
@@ -107,7 +134,7 @@ export default function HeroSection() {
           </button>
           <button
             className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
-            onClick={handleButtonClick4}
+            onClick={handleGetInTouchClick}
           >
             Get in touch →
           </button>
@@ -115,7 +142,12 @@ export default function HeroSection() {
       </div>
 
       {/* Sidebar */}
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-4 border-2 border-white rounded-full p-4">
+      <div
+        ref={sidebarRef}
+        className={`absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-4 border-2 border-white rounded-full p-4 transition duration-500 ${
+          isSidebarMoving ? "highlighted" : ""
+        }`}
+      >
         <a
           href="mailto:chamodivimodya@gmail.com"
           target="_blank"

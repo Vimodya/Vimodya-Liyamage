@@ -1,5 +1,6 @@
 "use client";
 import { FaGraduationCap } from "react-icons/fa";
+import { BiBook } from "react-icons/bi";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
@@ -70,11 +71,16 @@ export default function Education() {
               className="bg-[#000000] border-2 border-white rounded-full p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
             >
               <div className="flex items-center">
-                <FaGraduationCap className="text-4xl text-[#e75480] mr-6" />
+                {/* Conditionally render icons based on the index */}
+                {index === 0 ? (
+                  <FaGraduationCap className="text-4xl text-[#906953] mr-6" />
+                ) : (
+                  <BiBook className="text-4xl text-[#906953] mr-6" />
+                )}
                 <div>
                   <h2 className="text-2xl font-bold">{edu.degree}</h2>
                   <p className="text-xl text-[#9CA3AF]">{edu.institution}</p>
-                  <p className="text-md text-[#e75480] mt-1">{edu.years}</p>
+                  <p className="text-md text-[#906953] mt-1">{edu.years}</p>
                 </div>
               </div>
             </div>
