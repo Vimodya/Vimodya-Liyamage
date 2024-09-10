@@ -19,8 +19,17 @@ export default function Education() {
     if (cardRef.current.length > 0) {
       gsap.fromTo(
         cardRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, stagger: 0.3, duration: 1, ease: "power2.out" }
+        {
+          opacity: 0,
+          x: (index) => (index % 2 === 0 ? -100 : 100), // Alternate direction
+        },
+        {
+          opacity: 1,
+          x: 0,
+          stagger: 0.3,
+          duration: 1,
+          ease: "power2.out",
+        }
       );
     }
   }, []);
@@ -45,7 +54,7 @@ export default function Education() {
   ];
 
   return (
-    <section className="min-h-screen bg-[#0A0E27] text-white p-10">
+    <section className="min-h-screen bg-[#000000] text-white p-10">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl font-semibold mb-8">Education</h1>
 
@@ -58,14 +67,14 @@ export default function Education() {
                 // Use a callback to set the refs but do not return anything
                 cardRef.current[index] = el;
               }}
-              className="bg-[#1A2038] p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="bg-[#000000] border-2 border-white rounded-full p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
             >
               <div className="flex items-center">
-                <FaGraduationCap className="text-4xl text-[#6EE7B7] mr-6" />
+                <FaGraduationCap className="text-4xl text-[#e75480] mr-6" />
                 <div>
                   <h2 className="text-2xl font-bold">{edu.degree}</h2>
                   <p className="text-xl text-[#9CA3AF]">{edu.institution}</p>
-                  <p className="text-md text-[#6EE7B7] mt-1">{edu.years}</p>
+                  <p className="text-md text-[#e75480] mt-1">{edu.years}</p>
                 </div>
               </div>
             </div>

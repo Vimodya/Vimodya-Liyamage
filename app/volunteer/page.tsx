@@ -49,7 +49,7 @@ export default function Volunteer() {
   ];
 
   return (
-    <section className="min-h-screen bg-[#0A0E27] text-white p-10">
+    <section className="min-h-screen bg-[#000000] text-white p-10">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-semibold mb-8">Volunteer Experience</h1>
 
@@ -65,7 +65,7 @@ export default function Volunteer() {
             >
               <h2 className="text-2xl font-bold">{volunteer.role}</h2>
               <p className="mt-2 text-[#9CA3AF]">{volunteer.organization}</p>
-              <p className="mt-2 text-[#6EE7B7] font-semibold">
+              <p className="mt-2 text-[#FFC0CB] font-semibold">
                 {volunteer.duration}
               </p>
             </div>
