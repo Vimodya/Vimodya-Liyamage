@@ -63,7 +63,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center bg-black text-white">
+    <section className="relative h-screen flex flex-col justify-center items-center bg-[#001010] text-white">
       <div className="absolute top-4 left-4 w-10 h-10 rounded-full overflow-hidden">
         <Image
           src="/IMG_0615.jpg"
@@ -77,7 +77,7 @@ export default function HeroSection() {
       <div className="text-center">
         <h1
           ref={nameRef}
-          className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-white whitespace-nowrap"
+          className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#906953] to-[#F9EBE9] whitespace-nowrap"
         >
           Vimodya Liyanage
         </h1>
@@ -88,25 +88,25 @@ export default function HeroSection() {
           className="flex flex-col ms-52 w-1/2 mt-6 space-x-4"
         >
           <button
-            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black transition duration-300"
+            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
             onClick={handleButtonClick}
           >
             Education →
           </button>
           <button
-            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black transition duration-300"
+            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
             onClick={handleButtonClick2}
           >
             Projects →
           </button>
           <button
-            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black transition duration-300"
+            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
             onClick={handleButtonClick3}
           >
             Volunteer →
           </button>
           <button
-            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black transition duration-300"
+            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
             onClick={handleButtonClick4}
           >
             Get in touch →
@@ -115,12 +115,12 @@ export default function HeroSection() {
       </div>
 
       {/* Sidebar */}
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-4">
+      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-4 border-2 border-white rounded-full p-4">
         <a
           href="mailto:chamodivimodya@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-pink-500 transition duration-300"
+          className="text-white text-2xl hover:text-[#906953] transition duration-300"
         >
           <FaEnvelope />
         </a>
@@ -128,7 +128,7 @@ export default function HeroSection() {
           href="https://github.com/Vimodya"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-pink-500 transition duration-300"
+          className="text-white text-2xl hover:text-[#906953] transition duration-300"
         >
           <FaGithub />
         </a>
@@ -144,7 +144,7 @@ export default function HeroSection() {
           href="https://hackerrank.com/Vimodya"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-pink-500 transition duration-300"
+          className="text-white text-2xl hover:text-[#906953] transition duration-300"
         >
           <FaHackerrank />
         </a>
