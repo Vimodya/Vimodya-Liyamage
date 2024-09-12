@@ -34,17 +34,17 @@ export default function Volunteer() {
     {
       role: "Editorial Committee",
       organization: "Rotaract Club, University of Moratuwa",
-      duration: "July 2023 - July 2024",
+      duration: "2023",
     },
     {
       role: "Event Coordination Committee",
       organization: "WIE, University of Moratuwa",
-      duration: "Ongoing",
+      duration: "2024",
     },
     {
-      role: "Member",
-      organization: "UOM Faculty of IT",
-      duration: "Ongoing",
+      role: "Editorial Committee",
+      organization: " IEEE Robotics and Automation Society of UOM",
+      duration: "2024",
     },
   ];
 
