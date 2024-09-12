@@ -165,7 +165,7 @@ export default function HeroSection() {
           <FaGithub />
         </a>
         <a
-          href="https://linkedin.com/Vimodya"
+          href="https://www.linkedin.com/in/chamodi-liyanage-8bb852270/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white text-2xl hover:text-pink-500 transition duration-300"
@@ -173,7 +173,7 @@ export default function HeroSection() {
           <FaLinkedin />
         </a>
         <a
-          href="https://hackerrank.com/Vimodya"
+          href="https://www.hackerrank.com/profile/Chamodi_HM"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white text-2xl hover:text-[#906953] transition duration-300"
