@@ -104,7 +104,7 @@ export default function HeroSection() {
       <div className="text-center">
         <h1
           ref={nameRef}
-          className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#906953] to-[#F9EBE9] whitespace-nowrap"
+          className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#DE3163] to-[#F9EBE9] whitespace-nowrap"
         >
           Vimodya Liyanage
         </h1>
@@ -152,7 +152,7 @@ export default function HeroSection() {
           href="mailto:chamodivimodya@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-[#906953] transition duration-300"
+          className="text-white text-2xl hover:text-[#DE3163] transition duration-300"
         >
           <FaEnvelope />
         </a>
@@ -160,7 +160,7 @@ export default function HeroSection() {
           href="https://github.com/Vimodya"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-[#906953] transition duration-300"
+          className="text-white text-2xl hover:text-[#DE3163] transition duration-300"
         >
           <FaGithub />
         </a>
@@ -176,7 +176,7 @@ export default function HeroSection() {
           href="https://www.hackerrank.com/profile/Chamodi_HM"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-2xl hover:text-[#906953] transition duration-300"
+          className="text-white text-2xl hover:text-[#DE3163] transition duration-300"
         >
           <FaHackerrank />
         </a>

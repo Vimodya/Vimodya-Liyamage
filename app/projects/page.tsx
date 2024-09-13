@@ -127,7 +127,7 @@ export default function Projects() {
               {/* Details Button */}
               <button
                 onClick={() => openModal(project)}
-                className="mt-4 bg-black border-2 border-[#906953] text-white px-4 py-2 rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
+                className="mt-4 bg-black border-2 border-[#DE3163] text-white px-4 py-2 rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
               >
                 Details
               </button>
@@ -151,7 +151,7 @@ export default function Projects() {
               <p className="text-lg text-[#9CA3AF] mb-4">
                 {selectedProject.description}
               </p>
-              <p className="text-md text-[#906953] mb-2">
+              <p className="text-md text-[#DE3163] mb-2">
                 <strong>Duration:</strong> {selectedProject.duration}
               </p>
               <p className="text-md text-[#9CA3AF]">
@@ -161,7 +161,7 @@ export default function Projects() {
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 text-xl bg-transparent text-white hover:text-[#906953] transition"
+                className="absolute top-4 right-4 text-xl bg-transparent text-white hover:text-[#DE3163] transition"
               >
                 &times;
               </button>
