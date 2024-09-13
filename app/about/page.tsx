@@ -73,14 +73,14 @@ export default function Education() {
               <div className="flex items-center">
                 {/* Conditionally render icons based on the index */}
                 {index === 0 ? (
-                  <FaGraduationCap className="text-4xl text-[#906953] mr-6" />
+                  <FaGraduationCap className="text-4xl text-[#DE3163] mr-6" />
                 ) : (
-                  <BiBook className="text-4xl text-[#906953] mr-6" />
+                  <BiBook className="text-4xl text-[#DE3163] mr-6" />
                 )}
                 <div>
                   <h2 className="text-2xl font-bold">{edu.degree}</h2>
                   <p className="text-xl text-[#9CA3AF]">{edu.institution}</p>
-                  <p className="text-md text-[#906953] mt-1">{edu.years}</p>
+                  <p className="text-md text-[#DE3163] mt-1">{edu.years}</p>
                 </div>
               </div>
             </div>
