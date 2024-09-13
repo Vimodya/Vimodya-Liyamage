@@ -2,7 +2,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-// Define the type for each volunteer work
 interface VolunteerItem {
   role: string;
   organization: string;
@@ -10,10 +9,8 @@ interface VolunteerItem {
 }
 
 export default function Volunteer() {
-  // Create a reference for the volunteer cards to apply GSAP animations
   const volunteerRef = useRef<Array<HTMLDivElement | null>>([]);
 
-  // Apply GSAP animation for a staggered effect on the volunteer cards
   useEffect(() => {
     if (volunteerRef.current.length > 0) {
       gsap.fromTo(
@@ -24,7 +21,6 @@ export default function Volunteer() {
     }
   }, []);
 
-  // List of volunteer work
   const volunteerList: VolunteerItem[] = [
     {
       role: "Batch Representative",
@@ -53,7 +49,6 @@ export default function Volunteer() {
       <div className="max-w-6xl mx-auto">
         <h1 className="text-5xl font-semibold mb-8">Volunteer Experience</h1>
 
-        {/* Volunteer Work List */}
         <div className="space-y-8">
           {volunteerList.map((volunteer, index) => (
             <div
