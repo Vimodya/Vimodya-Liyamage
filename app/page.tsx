@@ -9,22 +9,22 @@ export default function HeroSection() {
   const router = useRouter();
   const nameRef = useRef<HTMLHeadingElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
-  const sidebarRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null); // Ref for image
-  const [isSidebarMoving, setIsSidebarMoving] = useState(false);
-  const [showButtons, setShowButtons] = useState(false); // State for buttons visibility
+  const sidebarRef = useRef<HTMLDivElement>(null); // Ref for bottom bar
+  const largeImageRef = useRef<HTMLDivElement>(null); // Ref for larger image
+  const smallImageRef = useRef<HTMLDivElement>(null); // Ref for smaller top-left image
+  const [showButtons, setShowButtons] = useState(false); // State for showing buttons
+  const [showName, setShowName] = useState(true); // State for showing name and text initially
 
   useEffect(() => {
-    // Animate image first
-    if (imageRef.current) {
+    // Animate large image and name initially
+    if (largeImageRef.current) {
       gsap.fromTo(
-        imageRef.current,
+        largeImageRef.current,
         { opacity: 0, scale: 0 },
         { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
       );
     }
 
-    // Animate name after the image
     if (nameRef.current) {
       const text = nameRef.current.innerText;
       nameRef.current.innerHTML = text
@@ -63,36 +63,10 @@ export default function HeroSection() {
     }
   }, [showButtons]);
 
-  // Handle the "Get in touch" button click
-  const handleGetInTouchClick = () => {
-    setIsSidebarMoving(true);
-
-    gsap.to(sidebarRef.current, {
-      x: window.innerWidth / 4 - 50,
-      y: window.innerHeight / 4 - 10,
-      scale: 1.5,
-      borderColor: "yellow",
-      duration: 0.2,
-      ease: "power2.out",
-      onComplete: () => {
-        setTimeout(() => {
-          gsap.to(sidebarRef.current, {
-            x: 0,
-            y: 0,
-            scale: 1,
-            borderColor: "white",
-            duration: 0.2,
-            ease: "power2.out",
-          });
-          setIsSidebarMoving(false);
-        }, 500);
-      },
-    });
-  };
-
-  // Toggle the visibility of the buttons
+  // Handle arrow click to hide name/text and show buttons
   const handleArrowClick = () => {
-    setShowButtons((prev) => !prev);
+    setShowName(false);
+    setShowButtons(true);
   };
 
   const handleButtonClick = () => {
@@ -107,8 +81,9 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen flex flex-col justify-center items-center bg-[#001010] text-white">
+      {/* Small Profile Image (Top Left) */}
       <div
-        ref={imageRef}
+        ref={smallImageRef}
         className="absolute top-4 left-4 w-20 h-20 rounded-full overflow-hidden"
       >
         <Image
@@ -119,63 +94,114 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="text-center">
-        <h1
-          ref={nameRef}
-          className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#DE3163] to-[#F9EBE9] whitespace-nowrap"
-        >
-          Vimodya Liyanage
-        </h1>
-        <p className="mt-4 text-lg md:text-2xl">IT Undergraduate</p>
-
-        {showButtons && (
-          <div ref={buttonsRef} className="flex flex-col w-1/2 mt-6 space-x-4">
-            <button
-              className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
-              onClick={handleButtonClick}
-            >
-              Education →
-            </button>
-            <button
-              className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
-              onClick={handleButtonClick2}
-            >
-              Projects →
-            </button>
-            <button
-              className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
-              onClick={handleButtonClick3}
-            >
-              Volunteer →
-            </button>
-            <button
-              className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
-              onClick={handleGetInTouchClick}
-            >
-              Get in touch →
-            </button>
+      {/* Name, IT Undergraduate, and Large Profile Image */}
+      {showName && (
+        <div className="text-center">
+          <div
+            ref={largeImageRef}
+            className="w-40 h-40 rounded-full overflow-hidden mx-auto"
+          >
+            <Image
+              src="/IMG_0615.jpg"
+              alt="Large Profile Image"
+              layout="fill"
+              objectFit="cover"
+            />
           </div>
-        )}
-      </div>
+          <h1
+            ref={nameRef}
+            className="mt-4 text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#DE3163] to-[#F9EBE9] whitespace-nowrap"
+          >
+            Vimodya Liyanage
+          </h1>
+          <p className="mt-4 text-lg md:text-2xl">IT Undergraduate</p>
+        </div>
+      )}
 
-      <div
-        className="absolute bottom-10 cursor-pointer"
-        onClick={handleArrowClick}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="white"
-          className="w-6 h-6 animate-bounce"
+      {/* Buttons */}
+      {showButtons && (
+        <div ref={buttonsRef} className="flex flex-col w-1/2 mt-6 space-x-4">
+          <button
+            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
+            onClick={handleButtonClick}
+          >
+            Education →
+          </button>
+          <button
+            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
+            onClick={handleButtonClick2}
+          >
+            Projects →
+          </button>
+          <button
+            className="mt-6 px-6 py-3 bg-transparent border-2 border-white rounded-full hover:bg-[#F9EBE9] hover:text-black transition duration-300"
+            onClick={handleButtonClick3}
+          >
+            Volunteer →
+          </button>
+        </div>
+      )}
+
+      {/* Arrow to trigger buttons */}
+      {!showButtons && (
+        <div
+          className="absolute bottom-10 cursor-pointer"
+          onClick={handleArrowClick}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="white"
+            className="w-6 h-6 animate-bounce"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+      )}
+
+      {/* Bottom Bar with Links */}
+      <div
+        ref={sidebarRef}
+        className="absolute bottom-0 left-0 w-48 flex justify-center items-center space-x-6 p-4 bg-[#001010] border-t border-white"
+      >
+        <a
+          href="mailto:chamodivimodya@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-2xl hover:text-[#DE3163] transition duration-300"
+        >
+          <FaEnvelope />
+        </a>
+        <a
+          href="https://github.com/Vimodya"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-2xl hover:text-[#DE3163] transition duration-300"
+        >
+          <FaGithub />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/chamodi-liyanage-8bb852270/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-2xl hover:text-pink-500 transition duration-300"
+        >
+          <FaLinkedin />
+        </a>
+        <a
+          href="https://www.hackerrank.com/profile/Chamodi_HM"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-2xl hover:text-[#DE3163] transition duration-300"
+        >
+          <FaHackerrank />
+        </a>
       </div>
     </section>
   );
