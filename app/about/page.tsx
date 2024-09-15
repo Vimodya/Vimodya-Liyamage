@@ -9,6 +9,7 @@ interface EducationItem {
   degree: string;
   institution: string;
   years: string;
+  special: string;
 }
 
 export default function Education() {
@@ -41,16 +42,19 @@ export default function Education() {
       degree: "B.Sc. (Hons) in Information Technology",
       institution: "University of Moratuwa",
       years: "2021 - 2026",
+      special: "",
     },
     {
       degree: "Advanced Level (A/L)",
       institution: "Thellijjawilla Central College - Matara",
       years: "2020",
+      special: "Biological Science Stream",
     },
     {
       degree: "Ordinary Level (O/L)",
       institution: "Godapitiya Central College - Matara",
       years: "2015",
+      special: "",
     },
   ];
 
@@ -80,6 +84,7 @@ export default function Education() {
                 <div>
                   <h2 className="text-2xl font-bold">{edu.degree}</h2>
                   <p className="text-xl text-[#9CA3AF]">{edu.institution}</p>
+                  <p className="text-xl text-[#9CA3AF]">{edu.special}</p>
                   <p className="text-md text-[#DE3163] mt-1">{edu.years}</p>
                 </div>
               </div>
