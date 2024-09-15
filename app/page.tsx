@@ -145,7 +145,7 @@ export default function HeroSection() {
       {/* Arrow to trigger buttons */}
       {!showButtons && (
         <div
-          className="absolute bottom-10 cursor-pointer"
+          className="absolute bottom-14 cursor-pointer"
           onClick={handleArrowClick}
         >
           <svg
@@ -168,7 +168,7 @@ export default function HeroSection() {
       {/* Bottom Bar with Links */}
       <div
         ref={sidebarRef}
-        className="absolute bottom-0 left-0 w-48 flex justify-center items-center space-x-6 p-4 bg-[#001010] border-t border-white"
+        className="absolute bottom-0 left-[670px] w-48 flex justify-center items-center space-x-6 p-4 bg-[#001010] border-t border-white"
       >
         <a
           href="mailto:chamodivimodya@gmail.com"
