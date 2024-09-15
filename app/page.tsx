@@ -9,19 +9,24 @@ export default function HeroSection() {
   const router = useRouter();
   const nameRef = useRef<HTMLHeadingElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
-  const sidebarRef = useRef<HTMLDivElement>(null); // Ref for bottom bar
-  const largeImageRef = useRef<HTMLDivElement>(null); // Ref for larger image
-  const smallImageRef = useRef<HTMLDivElement>(null); // Ref for smaller top-left image
-  const [showButtons, setShowButtons] = useState(false); // State for showing buttons
-  const [showName, setShowName] = useState(true); // State for showing name and text initially
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const largeImageRef = useRef<HTMLDivElement>(null);
+  const smallImageRef = useRef<HTMLDivElement>(null);
+  const [showButtons, setShowButtons] = useState(false);
+  const [showName, setShowName] = useState(true);
 
   useEffect(() => {
     // Animate large image and name initially
     if (largeImageRef.current) {
       gsap.fromTo(
         largeImageRef.current,
-        { opacity: 0, scale: 0 },
-        { opacity: 1, scale: 1, duration: 1, ease: "power2.out" }
+        { opacity: 0, scale: 0 }, // Set opacity and scale to 0 at the start
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power2.out",
+        }
       );
     }
 
@@ -63,7 +68,6 @@ export default function HeroSection() {
     }
   }, [showButtons]);
 
-  // Handle arrow click to hide name/text and show buttons
   const handleArrowClick = () => {
     setShowName(false);
     setShowButtons(true);
@@ -81,25 +85,12 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen flex flex-col justify-center items-center bg-[#001010] text-white">
-      {/* Small Profile Image (Top Left) */}
-      <div
-        ref={smallImageRef}
-        className="absolute top-4 left-4 w-20 h-20 rounded-full overflow-hidden"
-      >
-        <Image
-          src="/IMG_0615.jpg"
-          alt="Profile Image"
-          layout="fill"
-          objectFit="cover"
-        />
-      </div>
-
       {/* Name, IT Undergraduate, and Large Profile Image */}
       {showName && (
         <div className="text-center">
           <div
             ref={largeImageRef}
-            className="w-40 h-40 rounded-full overflow-hidden mx-auto"
+            className="w-40 h-40 rounded-full overflow-hidden mx-auto opacity-0 scale-0" // Ensure it's hidden initially
           >
             <Image
               src="/IMG_0615.jpg"
@@ -145,7 +136,7 @@ export default function HeroSection() {
       {/* Arrow to trigger buttons */}
       {!showButtons && (
         <div
-          className="absolute bottom-10 cursor-pointer"
+          className="absolute bottom-14 cursor-pointer"
           onClick={handleArrowClick}
         >
           <svg
@@ -168,7 +159,7 @@ export default function HeroSection() {
       {/* Bottom Bar with Links */}
       <div
         ref={sidebarRef}
-        className="absolute bottom-0 left-0 w-48 flex justify-center items-center space-x-6 p-4 bg-[#001010] border-t border-white"
+        className="absolute bottom-0 left-[670px] w-48 flex justify-center items-center space-x-6 p-4 bg-[#001010] border-t border-white"
       >
         <a
           href="mailto:chamodivimodya@gmail.com"
