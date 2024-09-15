@@ -70,9 +70,9 @@ export default function Projects() {
     {
       title: "Wall Art Machine",
       description:
-        "Developed a software solution to control a wall art painting machine, automating intricate art designs.",
+        "Developed a hardware solution to control a wall art painting machine, automating intricate art designs.",
       duration: "Jul 2020 - Dec 2020",
-      technologies: "C, Augmented Reality",
+      technologies: "C, Arduino",
       imageUrl: "/path-to-image4.jpg",
       vercelUrl: "",
     },
@@ -142,19 +142,19 @@ export default function Projects() {
             onClick={closeModal}
           >
             <div
-              className="bg-[#001010] border-2 border-[#f9ebe9] p-8 rounded-xl shadow-lg text-white max-w-lg w-full relative"
+              className="bg-[#001010] border-2 border-[#f9ebe9] p-8 rounded-xl shadow-lg text-white max-w-lg w-full relative "
               onClick={(e) => e.stopPropagation()}
             >
-              <h2 className="text-3xl font-bold text-[#F9EBE9] mb-4">
+              <h2 className="text-3xl font-bold text-[#F9EBE9] mb-8">
                 {selectedProject.title}
               </h2>
-              <p className="text-lg text-[#9CA3AF] mb-4">
+              <p className="text-lg text-[#9CA3AF] mb-8">
                 {selectedProject.description}
               </p>
-              <p className="text-md text-[#DE3163] mb-2">
+              <p className="text-md text-white mb-8">
                 <strong>Duration:</strong> {selectedProject.duration}
               </p>
-              <p className="text-md text-[#9CA3AF]">
+              <p className="text-md text-[#DE3163]">
                 <strong>Technologies:</strong> {selectedProject.technologies}
               </p>
 
