@@ -16,11 +16,10 @@ export default function HeroSection() {
   const [showName, setShowName] = useState(true);
 
   useEffect(() => {
-    // Animate large image and name initially
     if (largeImageRef.current) {
       gsap.fromTo(
         largeImageRef.current,
-        { opacity: 0, scale: 0 }, // Set opacity and scale to 0 at the start
+        { opacity: 0, scale: 0 },
         {
           opacity: 1,
           scale: 1,
@@ -85,12 +84,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen flex flex-col justify-center items-center bg-[#001010] text-white">
-      {/* Name, IT Undergraduate, and Large Profile Image */}
       {showName && (
         <div className="text-center">
           <div
             ref={largeImageRef}
-            className="w-40 h-40 rounded-full overflow-hidden mx-auto opacity-0 scale-0" // Ensure it's hidden initially
+            className="w-40 h-40 rounded-full overflow-hidden mx-auto opacity-0 scale-0"
           >
             <Image
               src="/IMG_0615.jpg"
